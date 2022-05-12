@@ -1,3 +1,7 @@
+if (process.env.DEV) {
+  require('dotenv').config();
+}
+
 const express = require('express');
 require('express-async-errors');
 const router = require('./routers/_index');
@@ -7,6 +11,8 @@ const modules = require('./modules/_index');
 
 const startServer = async function ({ port }) {
   const app = express();
+
+  console.log('process.env.DEV: ', process.env.DEV);
 
   console.log('secret: ', modules.secret.TEST);
   await initLoaders({ expressApp: app });

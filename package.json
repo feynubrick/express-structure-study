@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "DEV=TRUE node server.js"
   },
   "keywords": [],
   "author": "Seung-Yoon Oh",
@@ -13,5 +14,8 @@
   "dependencies": {
     "express": "4.18.1",
     "express-async-errors": "3.1.1"
+  },
+  "devDependencies": {
+    "dotenv": "16.0.1"
   }
 }

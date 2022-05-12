@@ -1,7 +1,7 @@
-const awsSecretManager = require('./aws-secret-manager');
+const secretManager = require('./secret-manager');
 
 const initLoaders = async function ({ expressApp }) {
-  await awsSecretManager.loadSecrets({ expressApp });
+  await secretManager.loadSecrets({ expressApp });
 };
 
 module.exports = initLoaders;

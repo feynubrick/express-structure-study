@@ -1,15 +1,17 @@
 {
   "name": "aws-secret-manager",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "AWS secret manager를 사용방법 탐구를 위한 레포입니다.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Seung-Yoon Oh",
   "license": "ISC",
   "dependencies": {
-    "express": "4.18.1"
+    "express": "4.18.1",
+    "express-async-errors": "3.1.1"
   }
 }

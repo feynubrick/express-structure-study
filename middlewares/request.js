@@ -16,7 +16,6 @@ const queryParamParser = function ({ name, type, required = false, defaultVal = 
     const typeConverter = generateTypeConverter({ type });
     if (typeof value !== 'string') {
       if (required) {
-        console.log('required!');
         const error = new Error();
         error.status = 400;
         error.message = 'Required parameters are missing.';
@@ -33,8 +32,25 @@ const queryParamParser = function ({ name, type, required = false, defaultVal = 
 
 const generateTypeConverter = function ({ type }) {
   if (type === 'bool') {
-    return (val) => Boolean(val);
+    return booleanConverter;
   }
+  return (text) => text;
+};
+
+const booleanConverter = function (text) {
+  const truthyValues = ['1', 'true'];
+  const falseyValues = ['0', 'false'];
+  const loweredText = text.toLowerCase();
+
+  if (truthyValues.includes(loweredText)) {
+    return true;
+  } else if (falseyValues.includes(loweredText)) {
+    return false;
+  }
+  const error = new Error();
+  error.status = 400;
+  error.message = 'Wrong query parameter value.';
+  throw error;
 };
 
 module.exports = {

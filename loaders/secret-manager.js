@@ -1,7 +1,11 @@
-const secret = require('../modules/secret');
+const secretStorage = require('../modules/secret-storage');
 
 const loadSecrets = async function ({ expressApp }) {
-  await secret.loadSecrets({ TEST: process.env.TEST });
+  if (process.env.DEV) {
+    await secretStorage.loadSecrets({ TEST: process.env.TEST });
+  } else {
+    await secretStorage.loadSecrets({ TEST: process.env.TEST });
+  }
 };
 
 module.exports = {

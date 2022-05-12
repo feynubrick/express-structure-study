@@ -1,19 +1,28 @@
 const express = require('express');
 require('express-async-errors');
-const router = require('./router');
-const middlewares = require('./middlewares');
+const router = require('./routers/_index');
+const middlewares = require('./middlewares/_index');
+const initLoaders = require('./loaders/_index');
+const modules = require('./modules/_index');
 
-const app = express();
-const port = 3000;
+const startServer = async function ({ port }) {
+  const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+  console.log('secret: ', modules.secret.TEST);
+  await initLoaders({ expressApp: app });
+  console.log('secret: ', modules.secret.TEST);
 
-app.use(middlewares.requestLogger);
-app.use('/', router);
-app.use(middlewares.errorLogger);
-app.use(middlewares.errorResponser);
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+  app.use(middlewares.request.checker);
+  app.use('/', router);
+  app.use(middlewares.log.requestLogger);
+  app.use(middlewares.error.responseHandler);
+
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
+};
+
+startServer({ port: 3000 });

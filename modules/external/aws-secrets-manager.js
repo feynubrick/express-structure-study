@@ -20,7 +20,7 @@
 // Load the AWS SDK
 const AWS = require('aws-sdk');
 const REGION = 'ap-northeast-2';
-const SECRET_NAME = '***REMOVED***';
+const SECRET_NAME = 'arn:aws:secretsmanager:ap-northeast-2:<YOUR_ACCOUNT_ID>:secret:<SECRET_NAME>';
 
 // Create a Secrets Manager client
 // AWS는 환경변수에 있는 AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY를 사용해서

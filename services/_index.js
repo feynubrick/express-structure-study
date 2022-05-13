@@ -1,4 +1,4 @@
-const secrets = require('./secrets/_index');
+const secrets = require('./secrets');
 
 module.exports = {
   secrets,

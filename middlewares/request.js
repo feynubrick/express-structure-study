@@ -1,5 +1,5 @@
 const checker = function (req, res, next) {
-  console.log(`REQUEST ${req.method} ${req.originalUrl}`);
+  console.log(`${new Date().toTimeString()}: REQUEST ${req.method} ${req.originalUrl}`);
   console.log('        query:', req.query);
   console.log('        body:', req.body);
   next();

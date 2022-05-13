@@ -9,4 +9,6 @@ const initLoaders = async function ({ expressApp }) {
   }
 };
 
-module.exports = initLoaders;
+module.exports = {
+  initLoaders,
+};

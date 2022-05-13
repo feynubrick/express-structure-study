@@ -6,7 +6,7 @@ const express = require('express');
 require('express-async-errors');
 const router = require('./routers/_index');
 const middlewares = require('./middlewares/_index');
-const initLoaders = require('./loaders/_index');
+const { initLoaders } = require('./loaders/_index');
 const modules = require('./modules/_index');
 
 const startServer = async function ({ port }) {

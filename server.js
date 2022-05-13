@@ -9,10 +9,11 @@ const middlewares = require('./middlewares/_index');
 const loaders = require('./loaders/_index');
 const modules = require('./modules/_index');
 
-const startServer = async function ({ port }) {
+const startServer = async function () {
   const app = express();
 
   await loaders.init({ expressApp: app });
+  const port = modules.secretStorage.SERVER_PORT;
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -23,8 +24,8 @@ const startServer = async function ({ port }) {
   app.use(middlewares.error.responseHandler);
 
   app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`listening on port ${port}`);
   });
 };
 
-startServer({ port: 3000 });
+startServer();

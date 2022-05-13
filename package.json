@@ -6,16 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "DEV=TRUE node server.js"
+    "dev": "DEV=TRUE nodemon server.js"
   },
   "keywords": [],
   "author": "Seung-Yoon Oh",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "2.1133.0",
+    "dotenv": "16.0.1",
     "express": "4.18.1",
-    "express-async-errors": "3.1.1"
+    "express-async-errors": "3.1.1",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
-    "dotenv": "16.0.1"
+    "nodemon": "2.0.16"
   }
 }

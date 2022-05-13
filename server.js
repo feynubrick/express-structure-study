@@ -12,11 +12,7 @@ const modules = require('./modules/_index');
 const startServer = async function ({ port }) {
   const app = express();
 
-  console.log('process.env.DEV: ', process.env.DEV);
-
-  console.log('secret: ', modules.secretStorage.TEST);
   await initLoaders({ expressApp: app });
-  console.log('secret: ', modules.secretStorage.TEST);
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));

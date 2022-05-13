@@ -1,12 +1,12 @@
 class SecretStorage {
-  #TEST;
+  #MINDLOGIC_DB_PASSWORD;
 
-  get TEST() {
-    return this.#TEST;
+  get MINDLOGIC_DB_PASSWORD() {
+    return this.#MINDLOGIC_DB_PASSWORD;
   }
 
-  async loadSecrets({ TEST }) {
-    this.#TEST = TEST;
+  async updateSecrets({ MINDLOGIC_DB_PASSWORD }) {
+    this.#MINDLOGIC_DB_PASSWORD = MINDLOGIC_DB_PASSWORD;
   }
 }
 

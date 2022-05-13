@@ -1,6 +1,6 @@
 const secrets = require('./secrets');
 
-const initLoaders = async function ({ expressApp }) {
+const init = async function ({ expressApp }) {
   console.log('process.env.DEV: ', process.env.DEV);
   if (process.env.DEV) {
     await secrets.loadFromDotEnv();
@@ -10,5 +10,5 @@ const initLoaders = async function ({ expressApp }) {
 };
 
 module.exports = {
-  initLoaders,
+  init,
 };

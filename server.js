@@ -6,20 +6,20 @@ const express = require('express');
 require('express-async-errors');
 const router = require('./routers/_index');
 const middlewares = require('./middlewares/_index');
-const { initLoaders } = require('./loaders/_index');
+const loaders = require('./loaders/_index');
 const modules = require('./modules/_index');
 
 const startServer = async function ({ port }) {
   const app = express();
 
-  await initLoaders({ expressApp: app });
+  await loaders.init({ expressApp: app });
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
+  app.use(middlewares.log.requestLogger);
   app.use(middlewares.request.checker);
   app.use('/', router);
-  app.use(middlewares.log.requestLogger);
   app.use(middlewares.error.responseHandler);
 
   app.listen(port, () => {

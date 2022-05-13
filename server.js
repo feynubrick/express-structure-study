@@ -12,7 +12,7 @@ const modules = require('./modules/_index');
 const startServer = async function () {
   const app = express();
 
-  await loaders.init({ expressApp: app });
+  await loaders.main.init({ expressApp: app });
   const port = modules.secretStorage.SERVER_PORT;
 
   app.use(express.json());

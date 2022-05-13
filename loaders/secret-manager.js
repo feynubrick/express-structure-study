@@ -2,7 +2,7 @@ const secretStorage = require('../modules/secret-storage');
 const awsSecretsManager = require('../modules/external/aws-secrets-manager');
 
 const loadSecretsFromDotEnv = async function ({ expressApp }) {
-  await secretStorage.updateSecrets({ TEST: process.env.TEST });
+  await secretStorage.updateSecrets(process.env);
 };
 
 const loadSecretsFromAwsSecretsManager = async function ({ expressApp }) {

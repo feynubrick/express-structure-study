@@ -1,12 +1,12 @@
 const secretStorage = require('../modules/secret-storage');
-const awsSecretsManager = require('../modules/external/aws-secrets-manager');
+const modules = require('../modules/_index');
 
 const loadFromDotEnv = async function () {
   await secretStorage.updateSecrets(process.env);
 };
 
 const loadFromAwsSecretsManager = async function () {
-  const { secret } = await awsSecretsManager.getSecret();
+  const { secret } = await modules.external.awsSecretsManager.getSecret();
   await secretStorage.updateSecrets(secret);
 };
 

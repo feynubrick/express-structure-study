@@ -1,3 +1,5 @@
+const httpStatusCode = require('../constants/http-status-code');
+
 const checker = function (req, res, next) {
   console.log(`${new Date().toTimeString()}: REQUEST ${req.method} ${req.originalUrl}`);
   console.log('        query:', req.query);
@@ -17,7 +19,7 @@ const queryParamParser = function ({ name, type, required = false, defaultVal = 
     if (typeof value !== 'string') {
       if (required) {
         const error = new Error();
-        error.status = 400;
+        error.status = httpStatusCode.BAD_REQUEST_400;
         error.message = 'Required parameters are missing.';
         throw error;
       }
@@ -48,7 +50,7 @@ const booleanConverter = function (text) {
     return false;
   }
   const error = new Error();
-  error.status = 400;
+  error.status = httpStatusCode.BAD_REQUEST_400;
   error.message = 'Wrong query parameter value.';
   throw error;
 };

@@ -1,6 +1,4 @@
-if (process.env.DEV) {
-  require('dotenv').config();
-}
+require('dotenv').config();
 
 const express = require('express');
 require('express-async-errors');

@@ -1,5 +1,1 @@
-const secrets = require('./secrets');
-
-module.exports = {
-  secrets,
-};
+exports.secrets = require('./secrets');

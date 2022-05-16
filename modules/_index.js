@@ -1,7 +1,2 @@
-const secretStorage = require('./secret-storage');
-const external = require('./external/_index');
-
-module.exports = {
-  external,
-  secretStorage,
-};
+exports.secretStorage = require('./secret-storage');
+exports.external = require('./external/_index');

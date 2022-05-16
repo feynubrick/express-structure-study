@@ -1,5 +1,1 @@
-const awsSecretsManager = require('./aws-secrets-manager');
-
-module.exports = {
-  awsSecretsManager,
-};
+exports.awsSecretsManager = require('./aws-secrets-manager');

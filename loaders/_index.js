@@ -1,7 +1,2 @@
-const main = require('./_main');
-const secrets = require('./secrets');
-
-module.exports = {
-  main,
-  secrets,
-};
+exports.main = require('./_main');
+exports.secrets = require('./secrets');

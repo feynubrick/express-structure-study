@@ -1,5 +1,1 @@
-const httpStatusCode = require('./http-status-code');
-
-module.exports = {
-  httpStatusCode,
-};
+exports.httpStatusCode = require('./http-status-code');
